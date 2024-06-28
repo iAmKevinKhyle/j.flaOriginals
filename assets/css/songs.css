@@ -1,0 +1,200 @@
+/* MUSIC CONTENTS CONTAINER AND HEADING */
+section#songs {
+  background: url(../img/jfla2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: hidden;
+
+  position: relative;
+}
+section#songs::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(238, 150, 67, 0.1);
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+section#songs > div.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+section#songs > div.content > h1 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.1rem;
+  margin: 1rem 0;
+
+  z-index: 9;
+}
+
+div.music-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 4rem;
+  padding-bottom: 2rem;
+
+  z-index: 9;
+}
+
+div.music-content > div.card {
+  max-width: 750px;
+  display: flex;
+  gap: 1rem;
+  width: min-content;
+}
+
+/* ORIGINALS SONGS LIST */
+div.card-left {
+  position: relative;
+}
+div.card-left > div.image {
+  width: calc(100vw / 1.85);
+  min-width: 250px;
+  max-width: 350px;
+  aspect-ratio: 3 / 1.7;
+
+  box-shadow: 0 0 2px black, -3px 15px 0px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  transition: all 300ms ease;
+
+  border-radius: 1rem;
+  overflow: hidden;
+}
+div.card-left > div.image > i {
+  font-size: calc(100vw / 10);
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+div.card-left > div.image:hover ::after {
+  content: "Play";
+  cursor: pointer;
+
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+div.card-left > iframe {
+  width: calc(100vw / 1.85);
+  min-width: 250px;
+  max-width: 350px;
+  aspect-ratio: 3 / 1.7;
+
+  /* New */
+  box-shadow: -3px 15px 0px white;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+div.music-content > div.card > div.card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0;
+  min-width: 190px;
+}
+
+div.card-right-top > span.label-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 900;
+  opacity: 0.7;
+  text-shadow: 0 0 1px white;
+}
+
+div.card-right-top > p.song-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 900;
+  opacity: 1;
+  text-shadow: 0 0 3px black;
+}
+
+div.card-right-top > p.singer {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 900;
+  opacity: 1;
+}
+
+div.card-right-top > p.published.label {
+  margin-top: 1rem;
+  opacity: 0.75;
+}
+div.card-right-top > p.published {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 900;
+  opacity: 0.95;
+}
+
+div.card-right-bottom > button.redirect {
+  padding: 0.75rem;
+  text-align: center;
+  color: white;
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: none;
+  border-radius: 1rem;
+  transition: all 300ms ease;
+}
+div.card-right-bottom > button.redirect:hover {
+  transform: scale(1.1);
+}
+div.card-right-bottom > button.redirect:active {
+  transform: scale(0.95);
+}
+
+@media only screen and (max-width: 1120px) {
+  div.music-content > div.card {
+    flex-direction: column;
+  }
+  div.music-content > div.card > div.card-right {
+    padding: 0.25rem;
+  }
+  div.card-right-bottom > button.redirect {
+    margin-top: 0.25rem;
+  }
+}
+@media only screen and (max-width: 790px) {
+  div.music-content {
+    gap: 3rem 2rem;
+  }
+}
+@media only screen and (max-width: 756px) {
+  div.music-content {
+    grid-template-columns: 1fr;
+  }
+  div.card-left > iframe,
+  div.card-left > div.image {
+    width: calc(100vw / 1.25);
+  }
+}
