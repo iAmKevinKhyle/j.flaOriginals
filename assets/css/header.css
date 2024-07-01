@@ -1,0 +1,78 @@
+header#header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+  padding: 1.5rem 3rem;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0 5px var(--light-text-color);
+
+  z-index: 99;
+}
+
+header#header > nav.navigation {
+  display: flex;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 585px) {
+  header#header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  header#header > nav.navigation {
+    justify-content: space-between;
+  }
+}
+
+nav.navigation > li > a.nav-link {
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: var(--light-text-color);
+  font-weight: bold;
+  opacity: 0.75;
+
+  position: relative;
+}
+nav.navigation > li > a.nav-link.active {
+  opacity: 1;
+}
+nav.navigation > li > a.nav-link:hover {
+  opacity: 1;
+}
+nav.navigation > li > a.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  width: 0;
+  transform: translateX(-0.5rem);
+  height: 0.5rem;
+  background-color: var(--light-text-color);
+  border-radius: 1rem;
+
+  transition: width 300ms ease;
+}
+nav.navigation > li > a.nav-link.active::after {
+  width: calc(100% + 1rem);
+}
+
+@media only screen and (max-width: 390px) {
+  header#header > div.title {
+    justify-content: center;
+  }
+  header#header > nav.navigation > li > a > i {
+    display: none;
+  }
+  nav.navigation > li > a.nav-link.active::after {
+    width: calc(100% + 1rem);
+  }
+}
+@media only screen and (max-width: 300px) {
+  header#header > nav.navigation > li > a > i {
+    display: block;
+  }
+  header#header > nav.navigation > li > a > span {
+    display: none;
+  }
+}
